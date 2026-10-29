@@ -309,6 +309,7 @@
   }
   .service-art { position: sticky; top: 130px; }
   .service-art svg { width: 100%; max-width: 280px; display: block; }
+  .service-art .kiln { width: 100%; max-width: 250px; height: auto; display: block; }
   .service h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
   .service .sub { margin: 0 0 40px; max-width: 54ch; }
   .detail-list { list-style: none; margin: 0 0 40px; padding: 0; }
@@ -470,6 +471,7 @@
     .service-grid { grid-template-columns: 1fr; gap: 28px; }
     .service-art { position: static; }
     .service-art svg { max-width: 150px; }
+    .service-art .kiln { max-width: 170px; }
     .contacto-grid { grid-template-columns: 1fr; gap: 44px; }
     .foot-grid { grid-template-columns: 1fr 1fr; padding: 56px 0 36px; }
   }
@@ -720,14 +722,7 @@
     <div class="wrap">
       <div class="service-grid">
         <div class="service-art">
-          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M60 190 L60 110 C60 70 90 44 110 44 C130 44 160 70 160 110 L160 190 Z" fill="none" stroke="var(--gold)" stroke-width="2"/>
-            <rect x="86" y="150" width="48" height="40" rx="3" fill="none" stroke="var(--gold)" stroke-width="2"/>
-            <circle cx="110" cy="170" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
-            <path d="M96 30 C92 20 100 12 96 4" stroke="#B8924F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M112 26 C108 16 116 8 112 0" stroke="var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M126 30 C122 20 130 12 126 4" stroke="#B8924F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          </svg>
+          <img class="kiln" src="img/kiln.webp" alt="Horno cerámico con campana de extracción" loading="lazy">
         </div>
         <div>
           <span class="label">Servicio</span>
