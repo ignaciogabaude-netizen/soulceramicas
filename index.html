@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul Cerámicas — Piezas, talleres y quema de cerámica</title>
+<meta name="description" content="Cerámica artesanal en Macul, Santiago: piezas únicas, talleres de cerámica y servicio de quema profesional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Jost:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F1EA;
+    --bg-alt: #E8E0D5;
+    --cream: #FBF9F5;
+    --ink: #231811;
+    --ink-soft: #66513F;
+    --clay: #8A3F25;
+    --clay-deep: #6C2F1A;
+    --gold: #B8924F;
+    --dark: #18110C;
+    --dark-2: #100B08;
+    --line: rgba(43, 27, 16, 0.14);
+    --line-light: rgba(248, 242, 227, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink-soft);
+    font-family: 'Jost', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; }
+  img { max-width: 100%; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-variation-settings: 'opsz' 96;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Etiquetas y puntos ---------- */
+  .label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .dots {
+    width: 80px;
+    height: 6px;
+    margin: 22px 0 28px;
+    background: radial-gradient(circle, var(--gold) 2.3px, transparent 2.8px) 0 0 / 10px 6px repeat-x;
+  }
+  .dots.center { margin-left: auto; margin-right: auto; }
+
+  /* ---------- Botones ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--clay);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 14px 30px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid var(--clay);
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--clay-deep); border-color: var(--clay-deep); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .btn-light { background: transparent; color: var(--cream); border-color: rgba(248,242,227,0.6); }
+  .btn-light:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .btn-gold { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .btn-gold:hover { background: #CBA865; border-color: #CBA865; }
+  .btn-sm { padding: 10px 18px; font-size: 0.68rem; letter-spacing: 0.14em; }
+
+  /* ---------- Franja superior ---------- */
+  .topbar {
+    background: #18110C;
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 36px;
+  }
+  .topbar a { text-decoration: none; opacity: 0.9; display: inline-flex; align-items: center; gap: 7px; }
+  .topbar a svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+  .topbar a:hover { opacity: 1; text-decoration: underline; }
+  .topbar .social { display: flex; gap: 20px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(250, 247, 242, 0.93);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+  }
+  .logo { display: block; line-height: 0; }
+  .logo-mark { height: 76px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--clay); border-bottom-color: var(--gold); }
+
+  /* ---------- Hero ---------- */
+  .hero { background: #261f17; color: var(--cream); overflow: hidden; }
+  .hero-inner {
+    position: relative;
+    min-height: min(84vh, 760px);
+    display: flex;
+    align-items: center;
+  }
+  .hero-photo { position: absolute; inset: 0; }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 80% 40%;
+    display: block;
+  }
+  /* velo suave a la izquierda para asegurar la lectura del texto */
+  .hero-photo::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to right, rgba(22,13,6,0.25) 0%, rgba(22,13,6,0.1) 40%, rgba(22,13,6,0) 62%);
+  }
+  .hero .label { color: #DCC291; }
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 80px 28px;
+  }
+  .hero-copy > * { max-width: min(520px, 46%); }
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2.3rem, 4.6vw, 3.8rem);
+  }
+  .hero .lede {
+    color: rgba(252, 249, 240, 0.92);
+    font-size: 1.05rem;
+    margin: 0 0 34px;
+  }
+  .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; max-width: none; }
+
+  /* ---------- Secciones partidas (foto + texto) ---------- */
+  .about { min-height: 520px; display: grid; grid-template-columns: 1fr 1fr; }
+  .about .split-copy { padding: 80px max(28px, calc((100vw - 1120px) / 2 + 28px)) 80px 4vw; }
+  .about, .about .split-copy, .about-logo { background: var(--bg); }
+  .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
+  .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
+  .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
+
+  .essence { display: grid; grid-template-columns: 68fr 32fr; align-items: center; background: var(--bg-alt); }
+  .essence-img {
+    display: block; width: 100%; height: auto;
+  }
+  .essence-copy { padding: 40px 5vw 40px 0; }
+  .essence-copy h2 { font-size: clamp(1.4rem, 2.3vw, 2.2rem); line-height: 1.25; text-wrap: balance; }
+  .essence-copy .dots { margin-bottom: 0; }
+
+  /* ---------- Productos ---------- */
+  .section { padding: 110px 0; }
+  .section-head { max-width: 640px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+  .section-head p { margin: 0; }
+
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px;
+    margin-top: 56px;
+  }
+  .catalog-card { display: flex; flex-direction: column; }
+  .catalog-card .thumb {
+    aspect-ratio: 1 / 1;
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid var(--line);
+  }
+  .catalog-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+  .catalog-card:hover .thumb img { transform: scale(1.04); }
+  .catalog-card .thumb svg { width: 40%; height: 40%; }
+  .catalog-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .catalog-card .desc { font-size: 0.9rem; margin-bottom: 10px; }
+  .catalog-card .price {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+  .catalog-card .buy-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+
+  .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; margin-top: 56px; }
+  .gal-item { margin: 0; grid-column: span 2; }
+  .gallery .gal-item:last-child:nth-child(3n+1) { grid-column: 3 / span 2; }
+  .gallery .gal-item:nth-last-child(2):nth-child(3n+1) { grid-column: 2 / span 2; }
+  .gallery .gal-item:last-child:nth-child(3n+2) { grid-column: 4 / span 2; }
+  .gal-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-alt); }
+  .gal-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .gal-item:hover .gal-img img { transform: scale(1.03); }
+  .gal-item figcaption { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 16px; }
+  .gal-item h3 { font-size: 1.2rem; margin-bottom: 2px; }
+  .gal-item figcaption span { display: block; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+  .gal-item figcaption a {
+    flex-shrink: 0; font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; text-decoration: none; color: var(--clay); border-bottom: 1px solid var(--clay); padding-bottom: 2px; margin-top: 6px;
+  }
+  .gal-item figcaption a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    margin-top: 80px;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
+  }
+  .features h4, .block-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .check-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .check-list li { position: relative; padding-left: 22px; font-size: 0.95rem; }
+  .check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 10px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .custom-box { background: var(--cream); border: 1px solid var(--line); padding: 28px 30px; }
+  .custom-box h4 { margin-bottom: 10px; }
+  .custom-box p { margin: 0; font-size: 0.95rem; }
+  .cta-block { margin-top: 56px; }
+  .price-note { font-size: 0.85rem; margin: 14px 0 0; opacity: 0.85; }
+
+  /* ---------- Talleres / Quema ---------- */
+  .service-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .service-art { position: sticky; top: 130px; }
+  .service-art svg { width: 100%; max-width: 280px; display: block; }
+  .service h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+  .service .sub { margin: 0 0 40px; max-width: 54ch; }
+  .detail-list { list-style: none; margin: 0 0 40px; padding: 0; }
+  .detail-list li { padding: 18px 0; border-top: 1px solid var(--line); }
+  .detail-list li:last-child { border-bottom: 1px solid var(--line); }
+  .detail-list .t { font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .detail-list .d { font-size: 0.93rem; }
+  .service .block-title { margin-top: 0; }
+  .service .check-list { margin-bottom: 40px; }
+
+  /* Quema en versión oscura */
+  .service.dark { background: var(--dark); }
+  .service.dark h2 { color: #fff; }
+  .service.dark .label { color: var(--gold); }
+  .service.dark .sub, .service.dark .detail-list .d, .service.dark .check-list li { color: rgba(248,242,227,0.78); }
+  .service.dark .detail-list .t, .service.dark .block-title { color: var(--cream); }
+  .service.dark .detail-list li { border-color: var(--line-light); }
+  .service.dark .price-note { color: rgba(248,242,227,0.7); }
+
+  /* ---------- Contacto ---------- */
+  .contacto { background: var(--bg-alt); }
+  .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .contacto h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+  .contacto p { margin: 0; max-width: 44ch; }
+  .contacto .btn { margin-top: 30px; }
+  .follow-note { margin-top: 28px !important; font-size: 0.92rem; }
+  .contact-list { list-style: none; margin: 0; padding: 0; }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .contact-list li:first-child { padding-top: 0; }
+  .contact-list svg { width: 20px; height: 20px; flex-shrink: 0; fill: var(--clay); margin-top: 4px; }
+  .contact-list a { text-decoration: none; }
+  .contact-list a:hover { color: var(--clay); }
+  .contact-list .sm { color: var(--ink-soft); font-size: 0.9rem; }
+  .contact-list strong { display: block; font-weight: 600; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--dark-2); color: rgba(248,242,227,0.72); font-size: 0.9rem; }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 1.1fr 1.1fr;
+    gap: 44px;
+    padding: 80px 0 56px;
+  }
+  .foot-logo { height: 92px; width: auto; filter: invert(1) sepia(0.25); opacity: 0.95; margin-bottom: 20px; }
+  footer h5 {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 20px;
+  }
+  footer p { margin: 0 0 10px; }
+  footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .foot-bottom {
+    border-top: 1px solid var(--line-light);
+    padding: 22px 0;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Aparición suave ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+
+  /* ---------- Banda de foto a todo el ancho (parallax) ---------- */
+  .band {
+    position: relative;
+    height: 100vh;
+    min-height: 520px;
+    background-color: #e0ceb9;
+    background-image: linear-gradient(#e0ceb9, #e0c9b3);
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  /* La foto queda fija en la pantalla; la banda es una ventana que se mueve */
+  .band-photo { position: absolute; inset: 0; clip-path: inset(0); }
+  .band-photo img {
+    position: fixed;
+    top: 50%; left: 0;
+    width: 100vw; height: auto;
+    transform: translateY(-50%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 95%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 95%, transparent 100%);
+  }
+  /* Móviles (no soportan fondo fijo): la foto se desplaza suave por JS */
+  @media (hover: none), (max-width: 900px) {
+    .band { height: 46vw; min-height: 240px; }
+    .band-photo img {
+      position: absolute; top: -12%; height: 124%; width: 100%; object-fit: cover;
+      transform: none; -webkit-mask-image: none; mask-image: none; will-change: transform;
+    }
+  }
+
+  /* ---------- Botón fijo de WhatsApp ---------- */
+  .wa-float {
+    position: fixed; z-index: 50;
+    right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom));
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--clay); color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(43, 27, 16, 0.28);
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .wa-float svg { width: 30px; height: 30px; fill: currentColor; }
+  .wa-float:hover { background: var(--clay-deep); transform: translateY(-2px); }
+  @media (max-width: 520px) { .wa-float { width: 56px; height: 56px; } }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .topbar .addr { display: none; }
+    .topbar .wrap { justify-content: center; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 4px 20px; padding-bottom: 12px; }
+    .logo-mark { height: 62px; }
+    .nav-links { gap: 14px; justify-content: center; }
+    .nav-links a { font-size: 0.66rem; letter-spacing: 0.1em; }
+    .hero-inner { display: block; min-height: 0; }
+    .hero-photo { position: relative; inset: auto; height: 62vw; min-height: 300px; max-height: 420px; }
+    .hero-photo::after { display: none; }
+    .hero-photo img { object-position: 86% 30%; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); }
+    .hero-copy { padding: 36px 28px 64px; }
+    .hero-copy > * { max-width: none; }
+    .split { grid-template-columns: 1fr; min-height: 0; }
+    .split-img { min-height: 340px; }
+    .about { min-height: 0; }
+    .about-logo { padding: 48px 28px; order: -1; }
+    .about-logo img { width: min(340px, 86%); }
+    .about .split-copy { padding: 48px 28px 64px; }
+    .essence { grid-template-columns: 1fr; }
+    .essence-img { -webkit-mask-image: none; mask-image: none; }
+    .essence-copy { padding: 36px 28px 64px; }
+    .essence-copy h2 { font-size: 1.6rem; }
+    .split-copy { padding: 64px 28px; }
+    .section { padding: 76px 0; }
+    .gallery { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+    .gallery .gal-item, .gallery .gal-item:nth-last-child(2):nth-child(3n+1), .gallery .gal-item:last-child:nth-child(3n+2) { grid-column: auto; }
+    .gallery .gal-item:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 8px); justify-self: center; }
+    .gal-item figcaption { flex-direction: column; gap: 8px; }
+    .features { grid-template-columns: 1fr; gap: 32px; }
+    .service-grid { grid-template-columns: 1fr; gap: 28px; }
+    .service-art { position: static; }
+    .service-art svg { max-width: 150px; }
+    .contacto-grid { grid-template-columns: 1fr; gap: 44px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; padding: 56px 0 36px; }
+  }
+  @media (max-width: 520px) {
+    .gallery { grid-template-columns: 1fr; }
+    .gallery .gal-item:last-child:nth-child(odd) { grid-column: auto; width: auto; justify-self: stretch; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="addr">Cerámica artesanal · Macul, Santiago</span>
+    <div class="social">
+      <a href="https://www.instagram.com/soul_ceramicas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.7 0 3.1 0 4.1.06 1.1.05 1.8.22 2.5.47.7.27 1.2.6 1.8 1.17.56.56.9 1.1 1.16 1.8.25.7.42 1.4.47 2.5.06 1 .06 1.4.06 4.1s0 3.1-.06 4.1c-.05 1.1-.22 1.8-.47 2.5-.27.7-.6 1.2-1.17 1.8-.56.56-1.1.9-1.8 1.16-.7.25-1.4.42-2.5.47-1 .06-1.4.06-4.1.06s-3.1 0-4.1-.06c-1.1-.05-1.8-.22-2.5-.47-.7-.27-1.2-.6-1.8-1.17-.56-.56-.9-1.1-1.16-1.8-.25-.7-.42-1.4-.47-2.5C2 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1.1.22-1.8.47-2.5.27-.7.6-1.2 1.17-1.8.56-.56 1.1-.9 1.8-1.16.7-.25 1.4-.42 2.5-.47C8.9 2 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-8.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>Instagram</a>
+      <a href="https://www.tiktok.com/@soul_ceramicas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3c.4 2.3 2 4 4.4 4.2v3.1c-1.5.1-2.9-.4-4.4-1.3v6.6c0 3.4-2.6 6-6 6-1.6 0-3.1-.6-4.2-1.7A5.9 5.9 0 015 15.2c0-3.3 2.7-6 6-6 .3 0 .6 0 .9.1v3.2a2.8 2.8 0 00-.9-.1 2.8 2.8 0 100 5.6c1.5 0 2.8-1.2 2.8-2.8V3h2.8z"/></svg>TikTok</a>
+      <a href="https://wa.me/56971048932" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#inicio" class="logo" aria-label="Soul Cerámicas, inicio">
+        <img src="img/logo.svg" alt="Soul Cerámicas" class="logo-mark">
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#taller">Talleres</a>
+        <a href="#quema">Quema</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- INICIO -->
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <img src="img/hero7.webp" alt="Escultura de cerámica: rostro modelado a mano con aros dorados">
+      </div>
+      <div class="hero-copy">
+        <span class="label">Cerámica artesanal</span>
+        <h1>Bienvenido a Soul Cerámicas</h1>
+        <div class="dots"></div>
+        <p class="lede">Somos un espacio dedicado a la cerámica artesanal, donde cada pieza cuenta una historia hecha a mano. Aquí encontrarás objetos únicos para tu hogar, talleres para aprender el oficio y un servicio de quema profesional para tus creaciones.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#productos">Ver productos</a>
+          <a class="btn btn-light" href="#taller">Ver talleres</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="split about reveal" id="nosotros">
+    <div class="about-logo">
+      <img src="img/about.webp" alt="Base de una pieza de Soul Cerámicas con el sello de la marca" loading="lazy">
+    </div>
+    <div class="split-copy">
+      <span class="label">Quiénes somos</span>
+      <h2>Cerámica hecha a mano</h2>
+      <div class="dots"></div>
+      <p>Soulceramicas es un punto de encuentro para quienes buscan conectar con la tierra, el barro y la creatividad.</p>
+    </div>
+  </section>
+
+  <!-- NUESTRA ESENCIA -->
+  <section class="essence reveal" id="esencia">
+    <img class="essence-img" src="img/florfull.webp" alt="Busto de cerámica esmaltada con flores modeladas a mano sobre los ojos">
+    <div class="essence-copy">
+      <span class="label">Nuestra esencia</span>
+      <h2>Creemos en el valor de lo hecho con las manos, en los tiempos lentos y en la belleza de lo imperfecto.</h2>
+      <div class="dots"></div>
+    </div>
+  </section>
+
+
+
+  <!-- PRODUCTOS -->
+  <section class="section reveal" id="productos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Colección</span>
+        <h2>Piezas únicas de la temporada</h2>
+        <div class="dots"></div>
+        <p>Cada pieza es modelada, esmaltada y cocida a mano, y existe una sola vez. Consulta por disponibilidad o encarga una a tu medida.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g1.webp" alt="Lámpara hongo" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Lámpara hongo</h3><span>Luz cálida, esmalte rojo.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20la%20l%C3%A1mpara%20hongo" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g2.webp" alt="Escultura con aros" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Escultura con aros</h3><span>Modelado a mano, aros dorados.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20la%20escultura%20con%20aros" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g4.webp" alt="Farol esmaltado" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Farol esmaltado</h3><span>Pieza para jardín o interior.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el%20farol%20esmaltado" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g5.webp" alt="Portalápices pulpo" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Portalápices pulpo</h3><span>Modelado a mano, esmalte rojo y azul.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el portal%C3%A1pices%20pulpo" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g6.webp" alt="Jarrón con relieves" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Jarrón con relieves</h3><span>Esmalte claro con flores modeladas.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el%20jarr%C3%B3n%20con%20relieves" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g7.webp" alt="Centro de hojas y hongos" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Centro de hojas y hongos</h3><span>Hojas en relieve y esmaltes de tierra.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el%20centro%20de%20hojas%20y%20hongos" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g8.webp" alt="Figura con cuarzo" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Figura con cuarzo</h3><span>Esmalte verde y cristal de cuarzo.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20la%20figura%20con%20cuarzo" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g9.webp" alt="Volcán" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Volcán</h3><span>Esmalte cenizo sobre gres natural.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el%20volc%C3%A1n" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g10.webp" alt="Escultura rostro" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Escultura rostro</h3><span>Gres natural, pieza para flores secas.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20la%20escultura%20rostro" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g11.webp" alt="Porta incienso pluma" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Porta incienso pluma</h3><span>Esmalte azul verdoso, modelado a mano.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20el%20porta%20incienso%20pluma" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+        <figure class="gal-item">
+          <div class="gal-img"><img src="img/g12.webp" alt="Medusa con planta aérea" loading="lazy"></div>
+          <figcaption>
+            <div><h3>Medusa con planta aérea</h3><span>Cerámica colgante para tillandsias.</span></div>
+            <a href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20me%20interesa%20la%20medusa%20con%20planta%20a%C3%A9rea" target="_blank" rel="noopener">Consultar</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="features">
+        <div>
+          <h4>Características</h4>
+          <ul class="check-list">
+            <li>Materiales naturales y esmaltes no tóxicos</li>
+            <li>Piezas irrepetibles, hechas en pequeños lotes</li>
+            <li>Ideales para uso cotidiano o como regalo especial</li>
+          </ul>
+        </div>
+        <div class="custom-box">
+          <h4>Personalización</h4>
+          <p>¿Buscas algo específico? Trabajamos bajo pedido para crear piezas a medida para tu hogar, restaurante o evento.</p>
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <a class="btn" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20ver%20el%20cat%C3%A1logo%20completo%20de%20piezas" target="_blank" rel="noopener">Consultar catálogo completo</a>
+        <p class="price-note">Piezas únicas, disponibilidad limitada. Valores según pieza.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDA FOTO -->
+  <div class="band" role="img" aria-label="Cuatro jarrones de cerámica raku con flores modeladas a mano"><div class="band-photo"><img alt="" id="band-img"></div></div>
+
+  <!-- TALLERES -->
+  <section class="section service reveal" id="taller" style="background: var(--bg-alt);">
+    <div class="wrap">
+      <div class="service-grid">
+        <div class="service-art">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="110" cy="110" r="95" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="110" cy="110" r="62" fill="var(--cream)" stroke="var(--gold)" stroke-width="2"/>
+            <circle cx="110" cy="110" r="14" fill="var(--clay)"/>
+            <path d="M110 48 C124 60 136 78 132 96" stroke="var(--clay-deep)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="110" cy="110" r="3" fill="var(--bg)"/>
+          </svg>
+        </div>
+        <div>
+          <span class="label">Talleres</span>
+          <h2>Aprende cerámica con nosotros</h2>
+          <div class="dots"></div>
+          <p class="sub">Ofrecemos talleres para todos los niveles: desde iniciación hasta técnicas avanzadas de modelado, torno y esmaltado. Nuestros espacios están diseñados para que aprendas, experimentes y crees con libertad.</p>
+
+          <div class="block-title">Tipos de talleres</div>
+          <ul class="detail-list">
+            <li><div class="t">Iniciación</div><div class="d">Aprende las bases del trabajo con arcilla, técnicas de modelado y acabados.</div></li>
+            <li><div class="t">Torno cerámico</div><div class="d">Domina el uso del torno para crear piezas simétricas y elegantes.</div></li>
+            <li><div class="t">Esmaltado y decoración</div><div class="d">Explora colores, texturas y técnicas de terminación.</div></li>
+            <li><div class="t">Talleres puntuales</div><div class="d">Encuentros de una sesión para crear piezas específicas (tazas, bowls, maceteros, etc.).</div></li>
+            <li><div class="t">Talleres especiales de fin de semana</div><div class="d">Sesiones los sábados y domingos para quienes buscan una experiencia intensiva o recreativa.</div></li>
+          </ul>
+
+          <div class="block-title">Incluye</div>
+          <ul class="check-list">
+            <li>Materiales y herramientas</li>
+            <li>Asesoría personalizada</li>
+            <li>Quema de tus piezas incluida</li>
+          </ul>
+
+          <a class="btn" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20consultar%20valores%20y%20pr%C3%B3ximas%20fechas%20de%20talleres" target="_blank" rel="noopener">Consultar valores y fechas</a>
+          <p class="price-note">Grupos reducidos, fechas según disponibilidad del taller.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- QUEMA -->
+  <section class="section service dark reveal" id="quema">
+    <div class="wrap">
+      <div class="service-grid">
+        <div class="service-art">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M60 190 L60 110 C60 70 90 44 110 44 C130 44 160 70 160 110 L160 190 Z" fill="none" stroke="var(--gold)" stroke-width="2"/>
+            <rect x="86" y="150" width="48" height="40" rx="3" fill="none" stroke="var(--gold)" stroke-width="2"/>
+            <circle cx="110" cy="170" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+            <path d="M96 30 C92 20 100 12 96 4" stroke="#B8924F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M112 26 C108 16 116 8 112 0" stroke="var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M126 30 C122 20 130 12 126 4" stroke="#B8924F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="label">Servicio</span>
+          <h2>Servicio de quema profesional</h2>
+          <div class="dots"></div>
+          <p class="sub">Si ya trabajas con cerámica y necesitas hornear tus piezas, ofrecemos un servicio de quema seguro y profesional. Utilizamos hornos de alta temperatura que garantizan resultados óptimos para tus creaciones.</p>
+
+          <div class="block-title">Tipos de quema</div>
+          <ul class="detail-list">
+            <li><div class="t">Bisquit (primera quema)</div><div class="d">Preparación de la pieza cruda para recibir esmalte.</div></li>
+            <li><div class="t">Quema de esmalte</div><div class="d">Fijación de colores y acabados a alta temperatura.</div></li>
+            <li><div class="t">Quema especial</div><div class="d">Para técnicas como rakú, gres o porcelana.</div></li>
+          </ul>
+
+          <div class="block-title">Condiciones</div>
+          <ul class="check-list">
+            <li>Recepción de piezas en fechas establecidas</li>
+            <li>Tiempos de entrega según tipo de quema</li>
+            <li>Asesoría en preparación y esmaltado previo</li>
+          </ul>
+
+          <a class="btn btn-gold" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20consultar%20valores%20del%20servicio%20de%20quema" target="_blank" rel="noopener">Consultar valores de quema</a>
+          <p class="price-note">Precio según tipo y tamaño de la pieza, sujeto a espacio disponible en el horno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section contacto reveal" id="contacto">
+    <div class="wrap contacto-grid">
+      <div>
+        <span class="label">Contacto</span>
+        <h2>¿Tienes dudas o quieres reservar?</h2>
+        <div class="dots"></div>
+        <p>Escríbenos para consultar por productos, inscribirte en talleres o coordinar tu servicio de quema. Estamos aquí para ayudarte.</p>
+        <a class="btn" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20tengo%20una%20consulta" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <p class="follow-note">Mantente al día con nuestras novedades, piezas disponibles y fechas de talleres en <strong>@soul_ceramicas</strong> (Instagram y TikTok).</p>
+      </div>
+
+      <ul class="contact-list">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+          <span>Andrés Fernández Coma 3101, Macul, Santiago, Chile</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7.2L4.5 7v.1L12 12.4 19.5 7.1V7L12 12.2z"/></svg>
+          <a href="mailto:contacto@soulceramicas.cl">contacto@soulceramicas.cl</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.8 3.6 13.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4z"/></svg>
+          <a href="https://wa.me/56971048932" target="_blank" rel="noopener">+56 9 7104 8932</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.06 1.1.05 1.8.22 2.5.47.7.27 1.2.6 1.8 1.17.56.56.9 1.1 1.16 1.8.25.7.42 1.4.47 2.5.06 1 .06 1.4.06 4.1s0 3.1-.06 4.1c-.05 1.1-.22 1.8-.47 2.5-.27.7-.6 1.2-1.17 1.8-.56.56-1.1.9-1.8 1.16-.7.25-1.4.42-2.5.47-1 .06-1.4.06-4.1.06s-3.1 0-4.1-.06c-1.1-.05-1.8-.22-2.5-.47-.7-.27-1.2-.6-1.8-1.17-.56-.56-.9-1.1-1.16-1.8-.25-.7-.42-1.4-.47-2.5C2 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1.1.22-1.8.47-2.5.27-.7.6-1.2 1.17-1.8.56-.56 1.1-.9 1.8-1.16.7-.25 1.4-.42 2.5-.47C8.9 2 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-8.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>
+          <a href="https://www.instagram.com/soul_ceramicas" target="_blank" rel="noopener">@soul_ceramicas · Instagram</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M16.6 3c.4 2.3 2 4 4.4 4.2v3.1c-1.5.1-2.9-.4-4.4-1.3v6.6c0 3.4-2.6 6-6 6-1.6 0-3.1-.6-4.2-1.7A5.9 5.9 0 015 15.2c0-3.3 2.7-6 6-6 .3 0 .6 0 .9.1v3.2a2.8 2.8 0 00-.9-.1 2.8 2.8 0 100 5.6c1.5 0 2.8-1.2 2.8-2.8V3h2.8z"/></svg>
+          <a href="https://www.tiktok.com/@soul_ceramicas" target="_blank" rel="noopener">@soul_ceramicas · TikTok</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10h4v2h-6V7h2v5z"/></svg>
+          <div>
+            <strong>Horarios de atención</strong>
+            <span class="sm">Lunes a viernes: 9:00–18:00 hrs</span><br>
+            <span class="sm">Talleres especiales: sábados y domingos (horarios por confirmar)</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="img/logo.svg" alt="Soul Cerámicas" class="foot-logo">
+        <p>Taller de cerámica artesanal: piezas únicas, talleres y servicio de quema, hechos a mano.</p>
+      </div>
+      <div>
+        <h5>Enlaces rápidos</h5>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#taller">Talleres</a></li>
+          <li><a href="#quema">Quema</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Ubicación</h5>
+        <p>Andrés Fernández Coma 3101<br>Macul, Santiago, Chile</p>
+        <p>Lunes a viernes<br>9:00–18:00 hrs</p>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:contacto@soulceramicas.cl">contacto@soulceramicas.cl</a></li>
+          <li><a href="https://wa.me/56971048932" target="_blank" rel="noopener">+56 9 7104 8932</a></li>
+          <li><a href="https://www.instagram.com/soul_ceramicas" target="_blank" rel="noopener">Instagram @soul_ceramicas</a></li>
+          <li><a href="https://www.tiktok.com/@soul_ceramicas" target="_blank" rel="noopener">TikTok @soul_ceramicas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Soul Cerámicas · Todos los derechos reservados</span>
+      <span>soulceramicas.cl</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  (function () {
+    var BAND = 'img/band.webp';
+    var photo = document.getElementById('band-img'), band = document.querySelector('.band');
+    if (photo) photo.src = BAND;
+    var touch = window.matchMedia('(hover: none), (max-width: 900px)').matches;
+    if (photo && touch && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var tick = false;
+      var move = function () {
+        var r = band.getBoundingClientRect(), vh = window.innerHeight;
+        var p = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+        photo.style.transform = 'translateY(' + ((0.5 - p) * 18).toFixed(2) + '%)';
+        tick = false;
+      };
+      window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(move); } }, { passive: true });
+      window.addEventListener('resize', move); move();
+    }
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
