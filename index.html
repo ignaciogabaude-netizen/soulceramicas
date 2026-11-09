@@ -235,8 +235,8 @@
   .artist .signature { margin: 0 0 6px; line-height: 0; font-size: 0; }
   .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
-  .artist-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply;
-    -webkit-mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); }
+  .artist-photo { padding: 0 max(28px, calc((100vw - 1120px) / 2 + 28px)) 0 20px; }
+  .artist-photo img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 18px 40px rgba(35,24,17,.18); }
   .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
   .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
   .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
@@ -251,7 +251,10 @@
 
   /* ---------- Productos ---------- */
   .section { padding: 110px 0; }
-  .section-head { max-width: 640px; }
+  .section-head { max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head .dots { margin-left: auto; margin-right: auto; }
+  #productos .cta-block { text-align: center; }
+  #productos .features-grid, #productos .custom-box { text-align: left; }
   .section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
   .section-head p { margin: 0; }
 
@@ -369,7 +372,7 @@
 
   /* ---------- Contacto ---------- */
   .contacto { background: var(--bg-alt); }
-  .faq-list { max-width: 760px; margin-top: 8px; border-top: 1px solid var(--line); }
+  .faq-list { max-width: 760px; margin: 8px auto 0; border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); }
   .faq-item summary { cursor: pointer; list-style: none; padding: 22px 36px 22px 0; position: relative; font-family: 'Fraunces', Georgia, serif; font-size: 1.15rem; color: var(--ink); line-height: 1.35; }
   .faq-item summary::-webkit-details-marker { display: none; }
@@ -377,6 +380,7 @@
   .faq-item[open] summary::after { content: '–'; }
   .faq-item p { margin: 0 0 22px; max-width: 640px; }
   .more { margin: 14px 0 0; font-size: .95rem; }
+  .service .more { margin-bottom: 36px; }
   .more a { color: var(--clay); text-decoration: none; border-bottom: 1px solid var(--clay); padding-bottom: 1px; }
   .more a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
   .map-wrap { margin-top: 64px; }
@@ -524,7 +528,7 @@
     .about-logo img { width: min(340px, 86%); }
     .about .split-copy { padding: 48px 28px 64px; }
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
-    .artist-photo { order: -1; }
+    .artist-photo { order: -1; padding: 0 28px; }
     .artist-copy { padding: 8px 28px 0; }
     .artist .signature img { width: min(340px, 88%); }
 
@@ -554,7 +558,7 @@
     .foot-grid { grid-template-columns: 1fr; }
   }
   /* Próximo taller */
-  .event-card { display: grid; grid-template-columns: 5fr 6fr; align-items: center; position: relative; background: linear-gradient(135deg, rgba(38,31,23,.96) 0%, rgba(30,22,15,.94) 55%, rgba(22,13,6,.96) 100%); color: var(--cream); border-radius: 8px; margin: 0 0 72px; padding: 14px 0; border: 1px solid #DCC291; box-shadow: 0 0 0 5px rgba(220,194,145,.12), 0 30px 60px -32px rgba(0,0,0,.8); }
+  .event-card { display: grid; grid-template-columns: 5fr 6fr; align-items: center; position: relative; background: linear-gradient(135deg, rgba(38,31,23,.96) 0%, rgba(30,22,15,.94) 55%, rgba(22,13,6,.96) 100%); color: var(--cream); border-radius: 8px; margin: 0 0 96px; padding: 14px 0; border: 1px solid #DCC291; box-shadow: 0 0 0 5px rgba(220,194,145,.12), 0 30px 60px -32px rgba(0,0,0,.8); }
   .event-card::before { content: ''; position: absolute; inset: 7px; border: 1px solid rgba(220,194,145,.35); border-radius: 4px; pointer-events: none; }
   .event-media { display: flex; align-items: center; justify-content: center; padding: 28px 20px 28px 40px; }
   .event-media img { width: 100%; max-width: 380px; height: auto; display: block; filter: drop-shadow(0 18px 20px rgba(0,0,0,.55)); }
