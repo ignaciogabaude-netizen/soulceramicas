@@ -35,7 +35,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Jost:wght@400..600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Jost:wght@400..600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F5F1EA;
@@ -232,7 +232,8 @@
   .artist { background: var(--bg); display: grid; grid-template-columns: 5fr 6fr; align-items: center; gap: 0; padding: 40px 0 70px; overflow: hidden; }
   .artist-copy { padding: 40px 20px 40px max(28px, calc((100vw - 1120px) / 2 + 28px)); }
   .artist-copy p { max-width: 460px; }
-  .artist .signature { font-family: 'Mrs Saint Delafield', 'Allura', 'Snell Roundhand', 'Brush Script MT', cursive; font-weight: 400; font-size: clamp(4.4rem, 9vw, 7.6rem); line-height: .82; color: #17120f; margin: 4px 0 14px; letter-spacing: 0; transform: rotate(-4deg); transform-origin: left center; }
+  .artist .signature { margin: 0 0 6px; line-height: 0; font-size: 0; }
+  .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
   .artist-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply;
     -webkit-mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); }
@@ -525,7 +526,7 @@
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
     .artist-photo { order: -1; }
     .artist-copy { padding: 8px 28px 0; }
-    .artist .signature { font-size: clamp(4.2rem, 19vw, 5.6rem); }
+    .artist .signature img { width: min(340px, 88%); }
 
     .essence { grid-template-columns: 1fr; }
     .essence-img { -webkit-mask-image: none; mask-image: none; }
@@ -721,7 +722,7 @@
   <section class="artist reveal" id="artista">
     <div class="artist-copy">
       <span class="label">Artista</span>
-      <h2 class="signature" aria-label="Solange Fuenzalida">Solange Fuenzalida</h2>
+      <h2 class="signature"><img src="img/signature.png" alt="Solange Fuenzalida"></h2>
       <span class="artist-role">Ceramista independiente, artista y docente</span>
       <div class="dots"></div>
       <p>Con cinco años de trayectoria, Solange ha desarrollado una propuesta artística que combina la exploración de materiales, el trabajo manual y la creación de piezas que transitan entre lo funcional y lo escultórico. A través de Soul Cerámicas comparte su pasión por este oficio, tanto en sus creaciones como en la enseñanza.</p>
