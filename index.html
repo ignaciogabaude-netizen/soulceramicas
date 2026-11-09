@@ -236,12 +236,15 @@
   .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
   .artist-photo { padding: 0 max(28px, calc((100vw - 1240px) / 2 + 28px)) 0 0; }
-  .print { position: relative; margin: 0; background: #FBF9F5; padding: 14px 14px 12px; transform: rotate(1.4deg); box-shadow: 0 2px 4px rgba(35,24,17,.12), 0 28px 60px rgba(35,24,17,.22); }
-  .print::before { content: ''; position: absolute; inset: 0; transform: translate(-22px, 22px) rotate(-2.8deg); border: 1px solid var(--gold); z-index: -1; }
-  .print::after { content: ''; position: absolute; top: -16px; left: 50%; width: 110px; height: 30px; transform: translateX(-50%) rotate(-3deg); background: rgba(220,194,145,.55); box-shadow: 0 1px 3px rgba(35,24,17,.15); }
+  .frame { position: relative; margin: 0; padding: 0; isolation: isolate; }
+  .frame img { position: relative; z-index: 2; border: 10px solid #FBF9F5; border-radius: 3px; box-shadow: 0 26px 60px rgba(35,24,17,.22); }
+  .frame::before { content: ''; position: absolute; inset: 0; transform: translate(-20px, 20px); border: 1.5px solid var(--gold); border-radius: 3px; z-index: 0; }
+  .frame::after { content: ''; position: absolute; inset: 0; transform: translate(-36px, 36px); border: 1px solid rgba(138,63,37,.35); border-radius: 3px; z-index: 0; }
+  .deco { position: absolute; z-index: 1; color: var(--gold); pointer-events: none; }
+  .deco-rays { width: 130px; right: -46px; top: -92px; transform: none; color: var(--clay); opacity: .8; z-index: 3; }
+  .deco-spiral { width: 110px; left: -78px; bottom: -86px; z-index: 3; color: var(--gold); }
   .artist-photo { position: relative; z-index: 0; }
   .artist-photo img { display: block; width: 100%; height: auto; }
-  .print figcaption { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: .92rem; color: var(--ink-soft); text-align: center; padding: 12px 0 2px; }
   .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
   .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
   .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
@@ -533,7 +536,8 @@
     .about-logo img { width: min(340px, 86%); }
     .about .split-copy { padding: 48px 28px 64px; }
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
-    .artist-photo { order: -1; padding: 16px 40px 10px 34px; }
+    .artist-photo { order: -1; padding: 40px 44px 44px 40px; }
+    .deco-rays { width: 84px; right: -20px; top: -56px; } .deco-spiral { width: 70px; left: -40px; bottom: -48px; }
     .artist-copy { padding: 34px 28px 0; }
     .artist .signature img { width: min(340px, 88%); }
 
@@ -737,9 +741,10 @@
       <p>Con cinco años de trayectoria, Solange ha desarrollado una propuesta artística que combina la exploración de materiales, el trabajo manual y la creación de piezas que transitan entre lo funcional y lo escultórico. A través de Soul Cerámicas comparte su pasión por este oficio, tanto en sus creaciones como en la enseñanza.</p>
     </div>
     <div class="artist-photo">
-      <figure class="print">
+      <figure class="frame">
+        <svg class="deco deco-rays" viewBox="0 0 140 160" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M21.7 100.0 Q29.8 69.3 23.9 38.1"/><path d="M37.1 103.0 Q50.9 85.7 51.5 63.5"/><path d="M50.8 110.6 Q75.4 90.5 89.0 61.7"/><path d="M61.5 122.0 Q82.8 116.1 96.3 98.6"/><path d="M68.1 136.2 Q99.8 134.4 127.7 119.1"/><path d="M70.0 151.7 Q90.7 159.5 111.9 153.2"/></svg>
+        <svg class="deco deco-spiral" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M51.6 50.0 L51.8 50.2 L52.0 50.4 L52.2 50.6 L52.4 50.9 L52.5 51.2 L52.6 51.5 L52.6 51.9 L52.6 52.3 L52.6 52.7 L52.4 53.1 L52.3 53.5 L52.1 53.9 L51.8 54.3 L51.5 54.6 L51.1 55.0 L50.7 55.3 L50.2 55.6 L49.7 55.8 L49.2 56.0 L48.6 56.1 L48.0 56.2 L47.3 56.2 L46.7 56.1 L46.0 56.0 L45.3 55.8 L44.7 55.5 L44.0 55.2 L43.4 54.7 L42.8 54.3 L42.2 53.7 L41.7 53.0 L41.2 52.4 L40.8 51.6 L40.5 50.8 L40.2 49.9 L40.0 49.0 L39.9 48.1 L39.9 47.1 L40.0 46.1 L40.2 45.1 L40.4 44.2 L40.8 43.2 L41.3 42.2 L41.9 41.3 L42.5 40.4 L43.3 39.6 L44.2 38.8 L45.1 38.1 L46.1 37.5 L47.2 37.0 L48.3 36.6 L49.6 36.2 L50.8 36.0 L52.1 35.9 L53.4 35.9 L54.7 36.1 L56.1 36.3 L57.4 36.7 L58.7 37.3 L59.9 37.9 L61.1 38.7 L62.3 39.6 L63.4 40.6 L64.4 41.7 L65.3 42.9 L66.1 44.3 L66.7 45.7 L67.3 47.2 L67.7 48.7 L68.0 50.3 L68.1 51.9 L68.1 53.6 L67.9 55.3 L67.6 57.0 L67.1 58.6 L66.5 60.2 L65.7 61.8 L64.7 63.3 L63.6 64.8 L62.4 66.1 L61.0 67.4 L59.5 68.5 L57.9 69.5 L56.2 70.3 L54.4 71.0 L52.5 71.6 L50.5 72.0 L48.5 72.1 L46.5 72.2 L44.5 72.0 L42.5 71.6 L40.4 71.1 L38.5 70.3 L36.6 69.4 L34.7 68.3 L33.0 67.0 L31.3 65.6 L29.8 63.9 L28.4 62.2 L27.2 60.3 L26.2 58.3 L25.3 56.2 L24.6 54.0 L24.1 51.7 L23.8 49.3 L23.8 47.0 L23.9 44.6 L24.3 42.2 L24.9 39.8 L25.7 37.5 L26.7 35.2 L28.0 33.1 L29.4 31.0 L31.0 29.0 L32.8 27.2 L34.8 25.6 L37.0 24.1 L39.3 22.8 L41.7 21.7 L44.2 20.9 L46.8 20.3 L49.5 19.9 L52.3 19.7 L55.0 19.8 L57.8 20.1 L60.5 20.7 L63.2 21.6 L65.8 22.7 L68.3 24.0 L70.7 25.6 L73.0 27.4 L75.1 29.4 L77.1 31.6 L78.8 34.0 L80.4 36.6 L81.7 39.3 L82.7 42.1 L83.5 45.1 L84.1 48.1 L84.3 51.2 L84.3 54.3 L84.0 57.4 L83.5 60.5 L82.6 63.5 L81.5 66.5 L80.0 69.4 L78.4 72.2 L76.4 74.8 L74.2 77.2 L71.8 79.5 L69.2 81.5 L66.4 83.4 L63.4 84.9 L60.3 86.2 L57.0 87.2 L53.7 87.9 L50.3 88.3 L46.8 88.4 L43.3 88.2 L39.9 87.7 L36.4 86.9 L33.1 85.7 L29.8 84.2 L26.7 82.5 L23.7 80.4 L20.9 78.1 L18.3 75.5 L16.0 72.7 L13.9 69.7 L12.0 66.4 L10.5 63.0 L9.2 59.5 L8.3 55.8 L7.7 52.0 L7.5 48.2 L7.6 44.4 L8.0 40.5 L8.8 36.7 L10.0 33.0 L11.5 29.3 L13.3 25.8 L15.4 22.5 L17.9 19.3 L20.6 16.4 L23.6 13.7 L26.8 11.3 L30.3 9.1 L34.0 7.3 L37.8 5.8 L41.8 4.7 L45.9 3.9 L50.1 3.5 L54.3 3.4 L58.5 3.8 L62.7 4.5 L66.8 5.6 L70.8 7.1 L74.7 8.9 L78.4 11.1"/></svg>
         <img src="img/solange.webp" alt="Solange Fuenzalida modelando una pieza de cerámica en el taller" loading="lazy">
-        <figcaption>Solange en el taller · Macul</figcaption>
       </figure>
     </div>
   </section>
