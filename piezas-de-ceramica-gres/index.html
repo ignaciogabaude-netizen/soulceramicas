@@ -552,6 +552,45 @@
     .event-media img { max-width: 300px; }
     .event-body { padding: 22px 26px 34px; }
   }
+  /* Quema v2 */
+  .quema2 { padding: 0 0 110px; background: var(--dark); color: var(--cream); }
+  .q2-hero { position: relative; background: linear-gradient(to bottom, rgba(22,13,6,.55) 0%, rgba(30,22,15,.72) 55%, var(--dark) 100%), var(--q2img) center 55%/cover; padding: 120px 0 90px; text-align: center; }
+  .q2-hero-in { max-width: 780px; }
+  .q2-hero .label { color: #DCC291; }
+  .q2-hero h2 { color: #fff; margin: 14px 0 0; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.12; }
+  .q2-hero h2 em { font-style: italic; color: #DCC291; font-weight: 400; }
+  .q2-hero .dots { margin: 22px auto; justify-content: center; }
+  .q2-hero .sub { color: rgba(251,249,245,.9); margin-left: auto; margin-right: auto; }
+  .q2-hero .more a { color: #DCC291; border-bottom-color: rgba(220,194,145,.5); }
+  .q2-specs { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(220,194,145,.4); background: rgba(255,255,255,.03); margin-top: -40px; position: relative; z-index: 2; backdrop-filter: blur(4px); }
+  .q2-specs div { padding: 26px 16px; text-align: center; border-left: 1px solid rgba(220,194,145,.25); }
+  .q2-specs div:first-child { border-left: 0; }
+  .q2-specs b { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.9rem; color: #DCC291; line-height: 1.1; }
+  .q2-specs span { display: block; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(251,249,245,.78); margin-top: 8px; }
+  .q2-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; margin-top: 72px; align-items: start; }
+  .q2-art { position: sticky; top: 120px; }
+  .q2-frame { border: 1px solid rgba(220,194,145,.45); padding: 10px; border-radius: 3px; }
+  .q2-frame::before { content: ''; display: block; }
+  .q2-frame .kiln { width: 100%; max-width: 100%; height: auto; display: block; padding: 34px 54px; background: radial-gradient(ellipse at 50% 45%, rgba(184,146,79,.14), transparent 70%); border: 1px solid rgba(220,194,145,.22); }
+  .q2-body .block-title { color: #DCC291; margin: 0 0 18px; }
+  .q2-types { list-style: none; margin: 0 0 44px; padding: 0; }
+  .q2-types li { display: grid; grid-template-columns: 64px 1fr; gap: 6px; padding: 22px 0; border-top: 1px solid rgba(220,194,145,.3); }
+  .q2-types li:last-child { border-bottom: 1px solid rgba(220,194,145,.3); }
+  .q2-n { font-family: 'Fraunces', serif; font-size: 1.6rem; color: #DCC291; line-height: 1.2; }
+  .q2-types .t { font-family: 'Fraunces', serif; font-size: 1.25rem; color: #fff; margin-bottom: 4px; }
+  .q2-types .d { color: rgba(251,249,245,.78); font-size: .95rem; line-height: 1.6; }
+  .q2-cond { list-style: none; margin: 0 0 38px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .q2-cond li { position: relative; padding-left: 26px; color: rgba(251,249,245,.9); font-size: .98rem; }
+  .q2-cond li::before { content: '\2726'; position: absolute; left: 0; color: #DCC291; font-size: .8rem; top: 3px; }
+  .q2-body .price-note { color: rgba(251,249,245,.7); }
+  @media (max-width: 900px) {
+    .q2-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 52px; }
+    .q2-art { position: static; max-width: 340px; margin: 0 auto; }
+    .q2-specs { grid-template-columns: 1fr 1fr; }
+    .q2-specs div:nth-child(3) { border-left: 0; }
+    .q2-specs div:nth-child(n+3) { border-top: 1px solid rgba(220,194,145,.25); }
+    .q2-hero { padding: 90px 0 80px; }
+  }
 </style>
 <style>
   .page-hero { background: var(--dark); color: var(--cream); padding: 96px 0 84px; }
