@@ -35,7 +35,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Jost:wght@400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Jost:wght@400..600&family=Allura&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F5F1EA;
@@ -227,11 +227,15 @@
   .about { min-height: 520px; display: grid; grid-template-columns: 1fr 1fr; }
   .about .split-copy { padding: 80px max(28px, calc((100vw - 1120px) / 2 + 28px)) 80px 4vw; }
   .about, .about .split-copy, .about-logo { background: var(--bg); }
-  .about-person { margin-top: 34px; padding-top: 28px; border-top: 1px solid rgba(184,146,79,.45); }
-  .about-person h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 1.5rem; color: var(--ink); margin: 0 0 6px; }
-  .about-person .role { display: block; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
-  .about-person p { margin: 0; }
 
+  /* Artista */
+  .artist { background: var(--bg); display: grid; grid-template-columns: 5fr 6fr; align-items: center; gap: 0; padding: 40px 0 70px; overflow: hidden; }
+  .artist-copy { padding: 40px 20px 40px max(28px, calc((100vw - 1120px) / 2 + 28px)); }
+  .artist-copy p { max-width: 460px; }
+  .artist .signature { font-family: 'Allura', 'Snell Roundhand', 'Brush Script MT', cursive; font-weight: 400; font-size: clamp(3.4rem, 7vw, 6rem); line-height: .95; color: var(--clay-deep); margin: 6px 0 10px; letter-spacing: 0; transform: rotate(-3deg); transform-origin: left center; text-wrap: balance; }
+  .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+  .artist-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 62% 66% at 52% 48%, #000 55%, transparent 100%); }
   .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
   .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
   .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
@@ -518,6 +522,11 @@
     .about-logo { padding: 48px 28px; order: -1; }
     .about-logo img { width: min(340px, 86%); }
     .about .split-copy { padding: 48px 28px 64px; }
+    .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
+    .artist-photo { order: -1; }
+    .artist-copy { padding: 8px 28px 0; }
+    .artist .signature { font-size: clamp(3.2rem, 15vw, 4.4rem); }
+
     .essence { grid-template-columns: 1fr; }
     .essence-img { -webkit-mask-image: none; mask-image: none; }
     .essence-copy { padding: 36px 28px 64px; }
@@ -705,11 +714,20 @@
       <h2>Un espacio para crear, aprender y conectar a través de la cerámica.</h2>
       <div class="dots"></div>
       <p>Soul Cerámicas es un taller de cerámica artesanal ubicado en Macul, Santiago. Un espacio dedicado a la creación de piezas únicas, la enseñanza del oficio y la exploración de las posibilidades que ofrece la arcilla.</p>
-      <div class="about-person">
-        <h3>Solange Fuenzalida</h3>
-        <span class="role">Ceramista independiente, artista y docente</span>
-        <p>Con cinco años de trayectoria, Solange ha desarrollado una propuesta artística que combina la exploración de materiales, el trabajo manual y la creación de piezas que transitan entre lo funcional y lo escultórico. A través de Soul Cerámicas comparte su pasión por este oficio, tanto en sus creaciones como en la enseñanza.</p>
-      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTA -->
+  <section class="artist reveal" id="artista">
+    <div class="artist-copy">
+      <span class="label">Artista</span>
+      <h2 class="signature" aria-label="Solange Fuenzalida">Solange Fuenzalida</h2>
+      <span class="artist-role">Ceramista independiente, artista y docente</span>
+      <div class="dots"></div>
+      <p>Con cinco años de trayectoria, Solange ha desarrollado una propuesta artística que combina la exploración de materiales, el trabajo manual y la creación de piezas que transitan entre lo funcional y lo escultórico. A través de Soul Cerámicas comparte su pasión por este oficio, tanto en sus creaciones como en la enseñanza.</p>
+    </div>
+    <div class="artist-photo">
+      <img src="img/solange.webp" alt="Solange Fuenzalida modelando una pieza de cerámica en el taller" loading="lazy">
     </div>
   </section>
 
