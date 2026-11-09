@@ -599,6 +599,22 @@
     .q2-specs div:nth-child(n+3) { border-top: 1px solid rgba(220,194,145,.25); }
     .q2-hero { padding: 90px 0 80px; }
   }
+  .q2-prices { margin-top: 96px; padding-top: 80px; border-top: 1px solid rgba(220,194,145,.25); }
+  .q2-ph { text-align: center; margin-bottom: 44px; }
+  .q2-ph .label { color: #DCC291; }
+  .q2-ph h3 { font-family: 'Fraunces', serif; font-weight: 500; color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin: 12px 0 0; }
+  .q2-ph h3 em { font-style: italic; color: #DCC291; font-weight: 400; }
+  .q2-ph .dots { margin: 20px auto 0; justify-content: center; }
+  .q2-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .q2-card { border: 1px solid rgba(220,194,145,.5); background: rgba(255,255,255,.03); padding: 34px 32px 28px; }
+  .q2-card h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.5rem; color: #fff; margin: 0 0 14px; }
+  .q2-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 16px 0; border-top: 1px solid rgba(220,194,145,.28); }
+  .q2-rn { color: #FBF9F5; font-size: .98rem; }
+  .q2-rt { font-size: .74rem; letter-spacing: .12em; color: #DCC291; margin-top: 3px; }
+  .q2-rp { font-family: 'Fraunces', serif; font-size: 1.55rem; color: #DCC291; white-space: nowrap; }
+  .q2-note { margin: 16px 0 0; padding-top: 16px; border-top: 1px solid rgba(220,194,145,.28); font-size: .84rem; line-height: 1.6; color: rgba(251,249,245,.8); }
+  .q2-foot { text-align: center; margin: 28px 0 0; font-size: .85rem; color: rgba(251,249,245,.7); }
+  @media (max-width: 760px) { .q2-cards { grid-template-columns: 1fr; } .q2-card { padding: 26px 22px 22px; } .q2-prices { margin-top: 64px; padding-top: 56px; } }
 </style>
 </head>
 <body>
@@ -888,9 +904,26 @@
             <li>Tiempos de entrega según tipo de quema</li>
             <li>Asesoría en preparación y esmaltado previo</li>
           </ul>
-          <a class="btn btn-gold" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20consultar%20valores%20del%20servicio%20de%20quema" target="_blank" rel="noopener">Consultar valores de quema</a>
-          <p class="price-note">Precio según tipo y tamaño de la pieza, sujeto a espacio disponible en el horno.</p>
+          <a class="btn btn-gold" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20reservar%20un%20cupo%20de%20quema" target="_blank" rel="noopener">Reservar cupo de quema</a>
+          <p class="price-note">Valores abajo. Sujeto a espacio disponible en el horno.</p>
         </div>
+      </div>
+
+      <div class="q2-prices" id="valores-quema">
+        <div class="q2-ph"><span class="label">Valores de arriendo</span><h3>Horno completo o <em>medio horno</em></h3><div class="dots"></div></div>
+        <div class="q2-cards">
+          <div class="q2-card"><h4>Horno completo</h4>
+            <div class="q2-row"><div><div class="q2-rn">Bizcocho</div><div class="q2-rt">900° a 980°</div></div><div class="q2-rp">$30.000</div></div>
+            <div class="q2-row"><div><div class="q2-rn">Esmalte de baja temperatura</div><div class="q2-rt">1000° a 1160°</div></div><div class="q2-rp">$35.000</div></div>
+            <div class="q2-row"><div><div class="q2-rn">Esmalte de alta temperatura</div><div class="q2-rt">1200° a 1240°</div></div><div class="q2-rp">$40.000</div></div>
+            <p class="q2-note">Sujeto a disponibilidad.</p></div>
+          <div class="q2-card"><h4>Medio horno</h4>
+            <div class="q2-row"><div><div class="q2-rn">Bizcocho</div><div class="q2-rt">900° a 980°</div></div><div class="q2-rp">$15.000</div></div>
+            <div class="q2-row"><div><div class="q2-rn">Esmalte de baja temperatura</div><div class="q2-rt">1000° a 1160°</div></div><div class="q2-rp">$20.000</div></div>
+            <div class="q2-row"><div><div class="q2-rn">Esmalte de alta temperatura</div><div class="q2-rt">1200° a 1240°</div></div><div class="q2-rp">$25.000</div></div>
+            <p class="q2-note">Máximo dos placas (aprox. 22 cm de altura). La entrega depende de si la otra mitad del horno la usa otra persona o el taller.</p></div>
+        </div>
+        <p class="q2-foot">Valores en pesos chilenos. Cocción por orden de llegada, con entrega normal de una a dos semanas.</p>
       </div>
     </div>
   </section>
