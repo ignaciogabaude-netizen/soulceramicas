@@ -560,6 +560,39 @@
     .event-media img { max-width: 300px; }
     .event-body { padding: 22px 26px 34px; }
   }
+  /* Pestañas quema */
+  .tabs { display: flex; gap: 6px; margin: 34px 0 30px; border-bottom: 1px solid rgba(220,194,145,.3); flex-wrap: wrap; }
+  .tab { background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; color: rgba(252,249,240,.6); font: inherit; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; padding: 12px 18px; cursor: pointer; transition: color .2s, border-color .2s; }
+  .tab:hover { color: #fff; }
+  .tab.is-active { color: #DCC291; border-bottom-color: #DCC291; }
+  .tab:focus-visible { outline: 2px solid #DCC291; outline-offset: 2px; }
+  .tab-panel[hidden] { display: none; }
+  .tab-panel.is-active { animation: tabIn .35s ease; }
+  @keyframes tabIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .q-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 26px; }
+  .q-specs div { border: 1px solid rgba(220,194,145,.4); padding: 16px 10px; text-align: center; }
+  .q-specs b { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.5rem; color: #DCC291; }
+  .q-specs span { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(251,249,245,.78); margin-top: 4px; }
+  .q-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+  .q-card { border: 1px solid rgba(220,194,145,.45); background: rgba(255,255,255,.03); padding: 24px 22px 20px; }
+  .q-card h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.3rem; margin: 0 0 12px; color: #fff; }
+  .q-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(220,194,145,.28); }
+  .q-n { font-size: .92rem; color: #FBF9F5; }
+  .q-t { font-size: .72rem; letter-spacing: .1em; color: #DCC291; margin-top: 2px; }
+  .q-p { font-family: 'Fraunces', serif; font-size: 1.2rem; color: #DCC291; white-space: nowrap; }
+  .q-note { font-size: .8rem; line-height: 1.55; color: rgba(251,249,245,.8); margin: 12px 0 0; padding-top: 12px; border-top: 1px solid rgba(220,194,145,.28); }
+  .q-rules { list-style: none; counter-reset: q; margin: 0 0 32px; padding: 0; }
+  .q-rules li { counter-increment: q; display: grid; grid-template-columns: 40px 1fr; padding: 14px 0; border-top: 1px solid rgba(220,194,145,.28); font-size: .95rem; line-height: 1.6; color: #FBF9F5; }
+  .q-rules li:last-child { border-bottom: 1px solid rgba(220,194,145,.28); }
+  .q-rules li::before { content: counter(q, decimal-leading-zero); font-family: 'Fraunces', serif; color: #DCC291; }
+  .q-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-ghost { background: transparent; color: #DCC291; border: 1px solid #DCC291; }
+  .btn-ghost:hover { background: #DCC291; color: var(--dark); }
+  @media (max-width: 720px) {
+    .q-cards { grid-template-columns: 1fr; }
+    .tab { padding: 12px 12px; font-size: .72rem; letter-spacing: .1em; }
+    .q-specs span { font-size: .66rem; }
+  }
 </style>
 </head>
 <body>
@@ -830,6 +863,12 @@
           <p class="sub">Si ya trabajas con cerámica y necesitas hornear tus piezas, ofrecemos un servicio de quema seguro y profesional. Utilizamos hornos de alta temperatura que garantizan resultados óptimos para tus creaciones.</p>
           <p class="more"><a href="https://soulceramicas.cl/quema-de-ceramica-santiago/">Más sobre el servicio de quema de cerámica →</a></p>
 
+          <div class="tabs" role="tablist" aria-label="Servicio de quema">
+            <button class="tab is-active" role="tab" id="tab-quema-servicio" aria-selected="true" aria-controls="panel-quema-servicio" data-tab="servicio">El servicio</button>
+            <button class="tab" role="tab" id="tab-quema-tarifas" aria-selected="false" aria-controls="panel-quema-tarifas" data-tab="tarifas">Tarifas e indicaciones</button>
+          </div>
+
+          <div class="tab-panel is-active" role="tabpanel" id="panel-quema-servicio" aria-labelledby="tab-quema-servicio">
           <div class="block-title">Tipos de quema</div>
           <ul class="detail-list">
             <li><div class="t">Bisquit (primera quema)</div><div class="d">Preparación de la pieza cruda para recibir esmalte.</div></li>
@@ -844,8 +883,43 @@
             <li>Asesoría en preparación y esmaltado previo</li>
           </ul>
 
+
           <a class="btn btn-gold" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20consultar%20valores%20del%20servicio%20de%20quema" target="_blank" rel="noopener">Consultar valores de quema</a>
           <p class="price-note">Precio según tipo y tamaño de la pieza, sujeto a espacio disponible en el horno.</p>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-quema-tarifas" aria-labelledby="tab-quema-tarifas" hidden>
+            <p class="more" style="color:rgba(251,249,245,.88)">Cocción en horno a gas de carga superior. La cocción es por orden de llegada y el tiempo normal de entrega varía entre una a dos semanas.</p>
+            <div class="q-specs"><div><b>Gas</b><span>Carga superior</span></div><div><b>4</b><span>Placas de 42 cm</span></div><div><b>50 cm</b><span>Altura interna</span></div></div>
+            <div class="q-cards">
+              <div class="q-card"><h4>Horno completo</h4>
+                <div class="q-row"><div><div class="q-n">Bizcocho</div><div class="q-t">900° a 980°</div></div><div class="q-p">$30.000</div></div>
+                <div class="q-row"><div><div class="q-n">Esmalte de baja temperatura</div><div class="q-t">1000° a 1160°</div></div><div class="q-p">$35.000</div></div>
+                <div class="q-row"><div><div class="q-n">Esmalte de alta temperatura</div><div class="q-t">1200° a 1240°</div></div><div class="q-p">$40.000</div></div>
+                <p class="q-note">Sujeto a disponibilidad.</p></div>
+              <div class="q-card"><h4>Medio horno</h4>
+                <div class="q-row"><div><div class="q-n">Bizcocho</div><div class="q-t">900° a 980°</div></div><div class="q-p">$15.000</div></div>
+                <div class="q-row"><div><div class="q-n">Esmalte de baja temperatura</div><div class="q-t">1000° a 1160°</div></div><div class="q-p">$20.000</div></div>
+                <div class="q-row"><div><div class="q-n">Esmalte de alta temperatura</div><div class="q-t">1200° a 1240°</div></div><div class="q-p">$25.000</div></div>
+                <p class="q-note">Máximo dos placas (aprox. 22 cm de altura). La entrega depende de si la otra mitad del horno la usa otra persona o el taller.</p></div>
+            </div>
+            <div class="block-title">Indicaciones</div>
+            <ol class="q-rules">
+              <li>Especificar el tipo de pasta que se ha utilizado (foto con la descripción).</li>
+              <li>Especificar el origen de los esmaltes utilizados (foto con la descripción).</li>
+              <li>Todas las piezas que se traigan al taller deberán estar limpias en el lugar que se apoyen en la placa del horno o no se quemarán.</li>
+              <li>Debido a que en la cerámica existe una fragilidad intrínseca, el taller no se hace responsable por piezas rotas.</li>
+              <li>Si una pieza se derrite y estropea cualquier parte del horno (placas, ladrillos o algún otro componente), esto correrá por cuenta del dueño de la pieza.</li>
+              <li>El taller no guardará ni se hará responsable por piezas que se queden rezagadas en el taller por más de dos meses.</li>
+              <li>El pago del servicio debe realizarse por adelantado para confirmar el cupo del horno.</li>
+              <li>No se hornearán piezas que estén visiblemente húmedas al tacto; si es así, se reagendará la quema.</li>
+            </ol>
+            <div class="q-actions">
+              <a class="btn btn-gold" href="https://wa.me/56971048932?text=Hola%20Soul%20Cer%C3%A1micas%2C%20quiero%20reservar%20un%20cupo%20en%20el%20horno" target="_blank" rel="noopener">Reservar cupo de quema</a>
+              <a class="btn btn-ghost" href="/Soul-Ceramicas-Servicio-de-Quema.pdf" download>Descargar PDF</a>
+            </div>
+            <p class="price-note">Valores en pesos chilenos. Atendemos de lunes a viernes, de 10:00 a 17:00 hrs.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1018,6 +1092,13 @@
 </script>
 <script>
 (function(){try{if(new Date()>=new Date('2026-11-28T00:00:00-03:00')){['proximo-taller','hero-event'].forEach(function(i){var e=document.getElementById(i);if(e)e.remove()})}}catch(e){}})();
+</script>
+<script>
+(function(){var tabs=document.querySelectorAll('#quema .tab');if(!tabs.length)return;
+function show(k){tabs.forEach(function(b){var on=b.getAttribute('data-tab')===k;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',on);var p=document.getElementById(b.getAttribute('aria-controls'));if(p){p.hidden=!on;p.classList.toggle('is-active',on)}})}
+tabs.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-tab'))})});
+function fromHash(){if(location.hash==='#quema-tarifas'){show('tarifas');var s=document.getElementById('quema');if(s)s.scrollIntoView()}}
+window.addEventListener('hashchange',fromHash);fromHash();})();
 </script>
 </body>
 </html>
