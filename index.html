@@ -236,7 +236,12 @@
   .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
   .artist-photo { padding: 0 max(28px, calc((100vw - 1240px) / 2 + 28px)) 0 0; }
-  .artist-photo img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 26px 60px rgba(35,24,17,.22); }
+  .print { position: relative; margin: 0; background: #FBF9F5; padding: 14px 14px 12px; transform: rotate(1.4deg); box-shadow: 0 2px 4px rgba(35,24,17,.12), 0 28px 60px rgba(35,24,17,.22); }
+  .print::before { content: ''; position: absolute; inset: 0; transform: translate(-22px, 22px) rotate(-2.8deg); border: 1px solid var(--gold); z-index: -1; }
+  .print::after { content: ''; position: absolute; top: -16px; left: 50%; width: 110px; height: 30px; transform: translateX(-50%) rotate(-3deg); background: rgba(220,194,145,.55); box-shadow: 0 1px 3px rgba(35,24,17,.15); }
+  .artist-photo { position: relative; z-index: 0; }
+  .artist-photo img { display: block; width: 100%; height: auto; }
+  .print figcaption { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: .92rem; color: var(--ink-soft); text-align: center; padding: 12px 0 2px; }
   .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
   .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
   .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
@@ -528,7 +533,7 @@
     .about-logo img { width: min(340px, 86%); }
     .about .split-copy { padding: 48px 28px 64px; }
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
-    .artist-photo { order: -1; padding: 0 28px; }
+    .artist-photo { order: -1; padding: 16px 40px 10px 34px; }
     .artist-copy { padding: 34px 28px 0; }
     .artist .signature img { width: min(340px, 88%); }
 
@@ -732,7 +737,10 @@
       <p>Con cinco años de trayectoria, Solange ha desarrollado una propuesta artística que combina la exploración de materiales, el trabajo manual y la creación de piezas que transitan entre lo funcional y lo escultórico. A través de Soul Cerámicas comparte su pasión por este oficio, tanto en sus creaciones como en la enseñanza.</p>
     </div>
     <div class="artist-photo">
-      <img src="img/solange.webp" alt="Solange Fuenzalida modelando una pieza de cerámica en el taller" loading="lazy">
+      <figure class="print">
+        <img src="img/solange.webp" alt="Solange Fuenzalida modelando una pieza de cerámica en el taller" loading="lazy">
+        <figcaption>Solange en el taller · Macul</figcaption>
+      </figure>
     </div>
   </section>
 
