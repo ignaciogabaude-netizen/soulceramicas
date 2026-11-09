@@ -615,6 +615,21 @@
   .q2-note { margin: 16px 0 0; padding-top: 16px; border-top: 1px solid rgba(220,194,145,.28); font-size: .84rem; line-height: 1.6; color: rgba(251,249,245,.8); }
   .q2-foot { text-align: center; margin: 28px 0 0; font-size: .85rem; color: rgba(251,249,245,.7); }
   @media (max-width: 760px) { .q2-cards { grid-template-columns: 1fr; } .q2-card { padding: 26px 22px 22px; } .q2-prices { margin-top: 64px; padding-top: 56px; } }
+  /* Nieve navideña */
+  #snow-page { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
+  .event-card { overflow: hidden; }
+  .event-card > * { position: relative; z-index: 2; }
+  .event-card::before { z-index: 1; }
+  #snow-card { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1 !important; }
+  .event-card::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(220,194,145,.16), transparent); transform: skewX(-18deg); animation: eventShine 7s ease-in-out infinite; pointer-events: none; z-index: 1; }
+  @keyframes eventShine { 0%, 55% { left: -40%; } 100% { left: 140%; } }
+  .event-tag::before { display: inline-block; animation: tagTwinkle 2.4s ease-in-out infinite; }
+  @keyframes tagTwinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(1.35) rotate(25deg); opacity: .7; } }
+  .event-media img { animation: eventFloat 6s ease-in-out infinite; }
+  @keyframes eventFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  #snow-toggle { position: fixed; left: 18px; bottom: 18px; z-index: 70; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(220,194,145,.6); background: rgba(24,17,12,.82); color: #DCC291; font-size: 18px; line-height: 1; cursor: pointer; backdrop-filter: blur(4px); }
+  #snow-toggle[aria-pressed="false"] { opacity: .55; text-decoration: line-through; }
+  @media (prefers-reduced-motion: reduce) { .event-card::after, .event-tag::before, .event-media img { animation: none; } #snow-page, #snow-card, #snow-toggle { display: none; } }
 </style>
 </head>
 <body>
@@ -813,7 +828,7 @@
   <!-- TALLERES -->
   <section class="section service reveal" id="taller" style="background: var(--bg-alt);">
     <div class="wrap">
-      <div class="event-card" id="proximo-taller" data-until="2026-11-28">
+      <div class="event-card" id="proximo-taller" data-until="2026-11-28"><canvas id="snow-card" aria-hidden="true"></canvas>
         <div class="event-media"><img src="img/xmas.webp" alt="Figuras de cerámica navideñas: muñeco de nieve y reno esmaltados" loading="lazy"></div>
         <div class="event-body">
           <span class="event-tag">Próximo taller</span>
@@ -1093,8 +1108,43 @@
     els.forEach(function (el) { io.observe(el); });
   })();
 </script>
+<canvas id="snow-page" aria-hidden="true"></canvas>
+<button id="snow-toggle" type="button" aria-pressed="true" aria-label="Activar o desactivar nieve" title="Nieve">&#10052;</button>
 <script>
-(function(){try{if(new Date()>=new Date('2026-11-28T00:00:00-03:00')){['proximo-taller','hero-event'].forEach(function(i){var e=document.getElementById(i);if(e)e.remove()})}}catch(e){}})();
+(function(){
+try{
+ if(new Date()>=new Date('2026-11-28T00:00:00-03:00'))return;
+ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ var on=true;try{on=localStorage.getItem('snow')!=='off'}catch(e){}
+ var btn=document.getElementById('snow-toggle');
+ function Snow(c,n,host,big){
+  var x=c.getContext('2d'),w=0,h=0,f=[],dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){var r=host?host.getBoundingClientRect():{width:innerWidth,height:innerHeight};w=r.width;h=r.height;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  function mk(top){return{x:Math.random()*w,y:top?-10:Math.random()*h,r:(big?1.2:0.9)+Math.random()*(big?2.8:2.2),v:0.35+Math.random()*0.9,s:Math.random()*Math.PI*2,a:0.5+Math.random()*0.45}}
+  size();for(var i=0;i<n;i++)f.push(mk(false));
+  this.size=size;
+  this.draw=function(){
+   x.clearRect(0,0,w,h);
+   for(var i=0;i<f.length;i++){var p=f[i];p.y+=p.v;p.s+=0.012;p.x+=Math.sin(p.s)*0.35;
+    if(p.y>h+6){f[i]=mk(true);continue}
+    x.beginPath();x.fillStyle='rgba(255,255,255,'+p.a+')';x.shadowColor=big?'rgba(220,194,145,.6)':'rgba(138,63,37,.35)';x.shadowBlur=big?6:4;x.arc(p.x,p.y,p.r,0,6.283);x.fill()}
+  }
+ }
+ var pg=new Snow(document.getElementById('snow-page'),Math.round(Math.min(70,innerWidth/18)),null,false);
+ var cardEl=document.getElementById('proximo-taller'),cc=document.getElementById('snow-card'),cs=null;
+ if(cardEl&&cc)cs=new Snow(cc,60,cardEl,true);
+ var run=true,raf;
+ function loop(){if(on){pg.draw();if(cs)cs.draw()}raf=requestAnimationFrame(loop)}
+ function apply(){document.getElementById('snow-page').style.display=on?'block':'none';if(cc)cc.style.display=on?'block':'none';btn.setAttribute('aria-pressed',on?'true':'false')}
+ btn.addEventListener('click',function(){on=!on;try{localStorage.setItem('snow',on?'on':'off')}catch(e){}apply()});
+ addEventListener('resize',function(){pg.size();if(cs)cs.size()});
+ document.addEventListener('visibilitychange',function(){if(document.hidden)cancelAnimationFrame(raf);else loop()});
+ apply();loop();
+}catch(e){}
+})();
+</script>
+<script>
+(function(){try{if(new Date()>=new Date('2026-11-28T00:00:00-03:00')){['proximo-taller','hero-event','snow-page','snow-toggle'].forEach(function(i){var e=document.getElementById(i);if(e)e.remove()})}}catch(e){}})();
 </script>
 </body>
 </html>

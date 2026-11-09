@@ -607,6 +607,21 @@
   .q2-note { margin: 16px 0 0; padding-top: 16px; border-top: 1px solid rgba(220,194,145,.28); font-size: .84rem; line-height: 1.6; color: rgba(251,249,245,.8); }
   .q2-foot { text-align: center; margin: 28px 0 0; font-size: .85rem; color: rgba(251,249,245,.7); }
   @media (max-width: 760px) { .q2-cards { grid-template-columns: 1fr; } .q2-card { padding: 26px 22px 22px; } .q2-prices { margin-top: 64px; padding-top: 56px; } }
+  /* Nieve navideña */
+  #snow-page { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
+  .event-card { overflow: hidden; }
+  .event-card > * { position: relative; z-index: 2; }
+  .event-card::before { z-index: 1; }
+  #snow-card { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1 !important; }
+  .event-card::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(220,194,145,.16), transparent); transform: skewX(-18deg); animation: eventShine 7s ease-in-out infinite; pointer-events: none; z-index: 1; }
+  @keyframes eventShine { 0%, 55% { left: -40%; } 100% { left: 140%; } }
+  .event-tag::before { display: inline-block; animation: tagTwinkle 2.4s ease-in-out infinite; }
+  @keyframes tagTwinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(1.35) rotate(25deg); opacity: .7; } }
+  .event-media img { animation: eventFloat 6s ease-in-out infinite; }
+  @keyframes eventFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  #snow-toggle { position: fixed; left: 18px; bottom: 18px; z-index: 70; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(220,194,145,.6); background: rgba(24,17,12,.82); color: #DCC291; font-size: 18px; line-height: 1; cursor: pointer; backdrop-filter: blur(4px); }
+  #snow-toggle[aria-pressed="false"] { opacity: .55; text-decoration: line-through; }
+  @media (prefers-reduced-motion: reduce) { .event-card::after, .event-tag::before, .event-media img { animation: none; } #snow-page, #snow-card, #snow-toggle { display: none; } }
 </style>
 <style>
   .page-hero { background: var(--dark); color: var(--cream); padding: 96px 0 84px; }
