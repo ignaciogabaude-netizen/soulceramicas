@@ -236,10 +236,10 @@
   .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
   .artist-photo { padding: 0 max(28px, calc((100vw - 1240px) / 2 + 28px)) 0 0; }
-  .frame { position: relative; margin: 0; padding: 0; isolation: isolate; transform: rotate(1.8deg); }
-  .frame img { position: relative; z-index: 2; border: 10px solid #FBF9F5; border-radius: 2px; box-shadow: 0 22px 50px rgba(60,34,20,.25); }
-  .deco-art.deco-front { z-index: 3; }
-  .deco-art { position: absolute; left: -13%; top: -15.3%; width: 126%; height: 133.3%; z-index: 1; pointer-events: none; overflow: visible; }
+  .frame { position: relative; margin: 0; padding: 0; isolation: isolate; }
+  .frame::before { content: ''; position: absolute; inset: 0; transform: translate(20px, 20px); border: 1px solid var(--gold); z-index: 0; }
+  .frame::after { content: ''; position: absolute; width: 56px; height: 56px; left: -14px; top: -14px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); z-index: 3; }
+  .frame img { position: relative; z-index: 2; display: block; width: 100%; height: auto; border: 8px solid #FBF9F5; box-shadow: 0 24px 50px rgba(35,24,17,.18); }
   .artist .dots { background: radial-gradient(circle, #C2703F 2.6px, transparent 3.2px) 0 0 / 14px 6px repeat-x; width: 84px; }
   .artist .signature img { filter: none; }
   .artist-photo { position: relative; z-index: 0; }
@@ -535,7 +535,7 @@
     .about-logo img { width: min(340px, 86%); }
     .about .split-copy { padding: 48px 28px 64px; }
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
-    .artist-photo { order: -1; padding: 40px 44px 44px 40px; }
+    .artist-photo { order: -1; padding: 18px 36px 36px 20px; }
       .artist-copy { padding: 34px 28px 0; }
     .artist .signature img { width: min(340px, 88%); }
 
@@ -740,28 +740,7 @@
     </div>
     <div class="artist-photo">
       <figure class="frame">
-        <svg class="deco-art deco-back" viewBox="0 0 1260 960" aria-hidden="true" focusable="false"><defs>
-            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D98A55"/><stop offset="1" stop-color="#B8643C"/></linearGradient>
-            <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7B07F"/><stop offset="1" stop-color="#C47A48"/></linearGradient>
-            <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B8643C"/><stop offset="1" stop-color="#8A3F25"/></linearGradient>
-            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
-          </defs><g fill="#E9C6A0" opacity=".55" filter="url(#soft)">
-            <path d="M820 100 C960 10 1190 40 1225 140 C1245 230 1170 262 1090 230 C1000 200 880 190 820 100Z"/>
-            <path d="M260 905 C470 850 760 945 1050 892 C1170 862 1215 810 1205 760 L1160 850 C1010 940 600 965 260 905Z"/>
-          </g></svg>
-        <svg class="deco-art deco-front" viewBox="0 0 1260 960" aria-hidden="true" focusable="false">
-          
-          
-          <g fill="none" stroke="url(#ln)" stroke-width="2.4" stroke-linecap="round">
-            <path d="M126 440 C62 340 70 200 150 132 C262 44 520 48 760 76 C960 98 1118 66 1186 132"/>
-            <path d="M1192 470 C1262 560 1240 700 1128 800 C1004 900 760 884 560 902 C400 916 262 905 205 868"/>
-            <path d="M118 300 C100 232 118 140 205 52" stroke-width="2"/>
-            <path d="M147.8 797.0 L147.4 797.0 L146.9 796.9 L146.5 796.7 L146.0 796.4 L145.6 796.1 L145.2 795.7 L144.9 795.2 L144.6 794.7 L144.4 794.1 L144.2 793.5 L144.1 792.8 L144.1 792.1 L144.1 791.3 L144.3 790.6 L144.6 789.8 L144.9 789.1 L145.3 788.4 L145.9 787.7 L146.5 787.0 L147.2 786.4 L148.0 785.9 L148.9 785.5 L149.9 785.1 L150.9 784.8 L152.0 784.7 L153.1 784.6 L154.2 784.7 L155.3 784.9 L156.5 785.3 L157.6 785.7 L158.7 786.3 L159.8 787.0 L160.8 787.9 L161.7 788.9 L162.5 790.0 L163.3 791.1 L163.9 792.4 L164.4 793.8 L164.7 795.2 L164.9 796.7 L164.9 798.3 L164.8 799.9 L164.5 801.4 L164.1 803.0 L163.5 804.5 L162.7 806.0 L161.7 807.5 L160.6 808.8 L159.3 810.1 L157.9 811.2 L156.3 812.2 L154.7 813.0 L152.9 813.7 L151.0 814.2 L149.1 814.5 L147.1 814.6 L145.1 814.5 L143.1 814.2 L141.1 813.7 L139.1 812.9 L137.2 812.0 L135.3 810.9 L133.6 809.5 L132.0 808.0 L130.5 806.3 L129.2 804.4 L128.1 802.4 L127.2 800.2 L126.5 797.9 L126.0 795.6 L125.8 793.2 L125.8 790.7 L126.0 788.2 L126.6 785.8 L127.3 783.3 L128.4 781.0 L129.6 778.7 L131.1 776.5 L132.9 774.5 L134.9 772.6 L137.0 771.0 L139.4 769.5 L141.9 768.3 L144.5 767.3 L147.3 766.6 L150.1 766.2 L153.0 766.1 L156.0 766.2 L158.9 766.7 L161.8 767.4 L164.6 768.5 L167.4 769.8 L170.0 771.5 L172.5 773.4 L174.8 775.5 L176.8 777.9 L178.7 780.6 L180.2 783.4 L181.5 786.4 L182.5 789.5 L183.2 792.8 L183.6 796.1 L183.6 799.5 L183.3 802.9 L182.6 806.3 L181.6 809.6 L180.2 812.9 L178.5 816.0 L176.5 818.9 L174.2 821.7 L171.6 824.2 L168.7 826.4 L165.6 828.4 L162.3 830.1 L158.8 831.5 L155.2 832.4 L151.4 833.1 L147.6 833.3 L143.7 833.2 L139.9 832.7 L136.1 831.7 L132.3 830.4 L128.7 828.7 L125.3 826.7 L122.0 824.3 L119.0 821.5 L116.3 818.5 L113.8 815.1 L111.7 811.5 L110.0 807.7 L108.6 803.7 L107.6 799.6 L107.1 795.3 L107.0 791.0 L107.3 786.7 L108.1 782.4 L109.2 778.2 L110.9 774.0 L112.9 770.1 L115.4 766.3 L118.2 762.8 L121.4 759.5 L124.9 756.6 L128.7 754.0 L132.8 751.8 L137.1 750.0 L141.6 748.7 L146.3 747.7 L151.0 747.3 L155.8 747.4 L160.6 747.9 L165.3 748.9 L170.0 750.4 L174.5 752.3 L178.8 754.7 L182.9 757.6 L186.7 760.9 L190.1 764.5 L193.2 768.5 L195.9 772.8 L198.2 777.4 L200.0 782.3 L201.3 787.3 L202.1 792.4 L202.4 797.6 L202.2 802.9 L201.4 808.2 L200.2 813.3 L198.3 818.4 L196.0 823.2 L193.2 827.9 L189.9 832.2 L186.2 836.3 L182.1 839.9 L177.6 843.2 L172.8 845.9 L167.7 848.2 L162.3 850.0 L156.8 851.3 L151.2 852.0 L145.4 852.1 L139.7 851.7 L134.0 850.7 L128.4 849.1 L123.0 846.9 L117.8 844.2 L112.9 841.0 L108.2 837.2 L104.0 833.1 L100.2 828.4 L96.8 823.4 L94.0 818.1 L91.7 812.5 L89.9 806.6 L88.8 800.6 L88.2 794.5 L88.3 788.3 L89.0 782.1 L90.3 775.9 L92.2 770.0 L94.7 764.2 L97.8 758.6 L101.5 753.4 L105.7 748.6 L110.4 744.1 L115.5 740.2 L121.0 736.7 L126.8 733.8 L133.0 731.5 L139.4 729.9 L145.9 728.8 L152.5 728.4 L159.2 728.7 L165.8 729.7 L172.4 731.3 L178.8 733.6 L184.9 736.5 L190.7 740.1 L196.2 744.2 L201.3 748.8 L205.9 754.0 L210.0 759.7 L213.5 765.7 L216.3 772.1 L218.6 778.7 L220.2 785.6 L221.1 792.7 L221.2 799.8 L220.7 806.9" stroke-width="2.6"/>
-          </g>
-          <g transform="translate(122 262) rotate(-150) scale(0.75)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg1)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g><g transform="translate(118 214) rotate(-128) scale(0.85)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg2)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g><g transform="translate(128 150) rotate(-100) scale(0.9)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg1)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g><g transform="translate(160 96) rotate(-70) scale(0.95)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg2)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g><g transform="translate(205 52) rotate(-48) scale(0.8)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg1)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g><g transform="translate(110 300) rotate(-170) scale(0.6)"><path d="M0 0 C 16 -22 52 -22 74 0 C 52 22 16 22 0 0Z" fill="url(#lg2)"/><path d="M4 0 L 66 0" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/></g>
-          <circle cx="112" cy="360" r="5" fill="#B8643C" opacity="0.9"/><circle cx="126" cy="388" r="3.5" fill="#B8643C" opacity="0.8"/><circle cx="138" cy="414" r="6" fill="#B8643C" opacity="0.85"/><circle cx="150" cy="440" r="3" fill="#B8643C" opacity="0.7"/><circle cx="1228" cy="640" r="4" fill="#B8643C" opacity="0.8"/><circle cx="1240" cy="668" r="6" fill="#B8643C" opacity="0.85"/><circle cx="1232" cy="700" r="3.5" fill="#B8643C" opacity="0.7"/><circle cx="300" cy="905" r="4" fill="#B8643C" opacity="0.8"/><circle cx="330" cy="920" r="3" fill="#B8643C" opacity="0.7"/><circle cx="268" cy="925" r="5" fill="#B8643C" opacity="0.8"/>
-        </svg>
-        <img src="img/solange.webp" alt="Solange Fuenzalida modelando una pieza de cerámica en el taller" loading="lazy">
+        <img src="img/solange.webp" alt="Solange Fuenzalida, al centro, junto a su diploma del Programa de Formación 2025 en cerámica" loading="lazy">
       </figure>
     </div>
   </section>
