@@ -229,14 +229,14 @@
   .about, .about .split-copy, .about-logo { background: var(--bg); }
 
   /* Artista */
-  .artist { background: var(--bg); display: grid; grid-template-columns: 5fr 6fr; align-items: center; gap: 0; padding: 40px 0 70px; overflow: hidden; }
-  .artist-copy { padding: 40px 20px 40px max(28px, calc((100vw - 1120px) / 2 + 28px)); }
+  .artist { background: var(--bg); display: grid; grid-template-columns: 1fr 1.3fr; align-items: center; padding: 70px 0 90px; overflow: hidden; }
+  .artist-copy { padding: 20px 72px 20px max(28px, calc((100vw - 1240px) / 2 + 28px)); }
   .artist-copy p { max-width: 460px; }
   .artist .signature { margin: 0 0 6px; line-height: 0; font-size: 0; }
   .artist .signature img { display: block; width: min(440px, 100%); height: auto; margin-left: -6px; }
   .artist-role { display: block; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
-  .artist-photo { padding: 0 max(28px, calc((100vw - 1120px) / 2 + 28px)) 0 20px; }
-  .artist-photo img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 18px 40px rgba(35,24,17,.18); }
+  .artist-photo { padding: 0 max(28px, calc((100vw - 1240px) / 2 + 28px)) 0 0; }
+  .artist-photo img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 26px 60px rgba(35,24,17,.22); }
   .about h2 { text-wrap: balance; font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
   .about-logo { display: flex; align-items: center; justify-content: center; padding: 64px 40px; }
   .about-logo img { width: min(540px, 94%); height: auto; display: block; filter: drop-shadow(0 22px 28px rgba(43,27,16,.22)); }
@@ -529,7 +529,7 @@
     .about .split-copy { padding: 48px 28px 64px; }
     .artist { grid-template-columns: 1fr; padding: 24px 0 48px; }
     .artist-photo { order: -1; padding: 0 28px; }
-    .artist-copy { padding: 8px 28px 0; }
+    .artist-copy { padding: 34px 28px 0; }
     .artist .signature img { width: min(340px, 88%); }
 
     .essence { grid-template-columns: 1fr; }
