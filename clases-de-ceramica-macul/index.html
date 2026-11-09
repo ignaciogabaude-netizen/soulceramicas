@@ -527,6 +527,27 @@
     .gallery .gal-item:last-child:nth-child(odd) { grid-column: auto; width: auto; justify-self: stretch; }
     .foot-grid { grid-template-columns: 1fr; }
   }
+  /* Próximo taller */
+  .event-card { display: grid; grid-template-columns: 5fr 6fr; background: var(--cream); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin: 0 0 72px; box-shadow: 0 18px 40px -26px rgba(35,24,17,.35); }
+  .event-media { background: #F2E8D5; display: flex; align-items: center; justify-content: center; padding: 28px; }
+  .event-media img { width: 100%; max-width: 420px; height: auto; display: block; -webkit-mask-image: linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); mask-composite: intersect; }
+  .event-body { padding: 44px 46px; display: flex; flex-direction: column; align-items: flex-start; }
+  .event-tag { display: inline-block; background: var(--clay); color: var(--cream); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; margin-bottom: 18px; }
+  .event-body h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin: 0 0 12px; }
+  .event-body p { margin: 0 0 18px; color: var(--ink-soft); }
+  .event-meta { list-style: none; padding: 0; margin: 0 0 24px; width: 100%; border-top: 1px solid var(--line); }
+  .event-meta li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .event-meta span { color: var(--ink-soft); }
+  .event-meta strong { font-weight: 500; text-align: right; }
+  .event-meta .price { font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--clay-deep); }
+  .hero-event { display: inline-block; margin-top: 22px; color: #DCC291; font-size: .9rem; letter-spacing: .04em; text-decoration: none; border-bottom: 1px solid rgba(220,194,145,.5); padding-bottom: 2px; }
+  .hero-event:hover { color: var(--cream); }
+  @media (max-width: 820px) {
+    .event-card { grid-template-columns: 1fr; margin-bottom: 52px; }
+    .event-media { padding: 22px; }
+    .event-media img { max-width: 300px; }
+    .event-body { padding: 30px 24px 34px; }
+  }
 </style>
 <style>
   .page-hero { background: var(--dark); color: var(--cream); padding: 96px 0 84px; }

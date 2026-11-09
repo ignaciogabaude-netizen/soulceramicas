@@ -22,6 +22,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://soulceramicas.cl/img/og.jpg">
 <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","name":"Taller de cerámica navideña en Soul Cerámicas","description":"Crea tu propia pieza de cerámica navideña. Incluye material, quemas y snack.","startDate":"2026-11-27T18:00:00-03:00","endDate":"2026-11-27T20:30:00-03:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Soul Cerámicas","address":{"@type":"PostalAddress","streetAddress":"Andrés Fernández Coma 3101","addressLocality":"Macul","addressRegion":"Región Metropolitana","addressCountry":"CL"}},"image":["https://soulceramicas.cl/img/xmas.webp"],"offers":{"@type":"Offer","price":"35000","priceCurrency":"CLP","availability":"https://schema.org/InStock","url":"https://soulceramicas.cl/#proximo-taller"},"organizer":{"@type":"Organization","name":"Soul Cerámicas","url":"https://soulceramicas.cl/"}}
+</script>
+<script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Soul Cerámicas", "url": "https://soulceramicas.cl/", "image": ["https://soulceramicas.cl/img/og-square.jpg", "https://soulceramicas.cl/img/og.jpg"], "logo": "https://soulceramicas.cl/img/logo.svg", "description": "Taller de cerámica en Macul, Santiago: clases y talleres, piezas artesanales únicas hechas a mano y servicio de quema para gres, rakú y porcelana. Escríbenos por WhatsApp.", "telephone": "+56971048932", "email": "contacto@soulceramicas.cl", "address": {"@type": "PostalAddress", "streetAddress": "Andrés Fernández Coma 3101", "addressLocality": "Macul", "addressRegion": "Región Metropolitana", "addressCountry": "CL"}, "sameAs": ["https://www.instagram.com/soul_ceramicas", "https://www.tiktok.com/@soul_ceramicas"], "areaServed": "Santiago, Chile", "priceRange": "$$", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "knowsAbout": ["clases de cerámica", "talleres de cerámica", "cerámica de gres", "piezas de cerámica artesanal", "quema de cerámica", "rakú", "bisquit"], "hasMap": "https://maps.app.goo.gl/wTXi5yvUnteV7JgK9"}
 </script>
 <script type="application/ld+json">
@@ -532,6 +535,27 @@
     .gallery .gal-item:last-child:nth-child(odd) { grid-column: auto; width: auto; justify-self: stretch; }
     .foot-grid { grid-template-columns: 1fr; }
   }
+  /* Próximo taller */
+  .event-card { display: grid; grid-template-columns: 5fr 6fr; background: var(--cream); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin: 0 0 72px; box-shadow: 0 18px 40px -26px rgba(35,24,17,.35); }
+  .event-media { background: #F2E8D5; display: flex; align-items: center; justify-content: center; padding: 28px; }
+  .event-media img { width: 100%; max-width: 420px; height: auto; display: block; -webkit-mask-image: linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); mask-composite: intersect; }
+  .event-body { padding: 44px 46px; display: flex; flex-direction: column; align-items: flex-start; }
+  .event-tag { display: inline-block; background: var(--clay); color: var(--cream); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; margin-bottom: 18px; }
+  .event-body h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin: 0 0 12px; }
+  .event-body p { margin: 0 0 18px; color: var(--ink-soft); }
+  .event-meta { list-style: none; padding: 0; margin: 0 0 24px; width: 100%; border-top: 1px solid var(--line); }
+  .event-meta li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .event-meta span { color: var(--ink-soft); }
+  .event-meta strong { font-weight: 500; text-align: right; }
+  .event-meta .price { font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--clay-deep); }
+  .hero-event { display: inline-block; margin-top: 22px; color: #DCC291; font-size: .9rem; letter-spacing: .04em; text-decoration: none; border-bottom: 1px solid rgba(220,194,145,.5); padding-bottom: 2px; }
+  .hero-event:hover { color: var(--cream); }
+  @media (max-width: 820px) {
+    .event-card { grid-template-columns: 1fr; margin-bottom: 52px; }
+    .event-media { padding: 22px; }
+    .event-media img { max-width: 300px; }
+    .event-body { padding: 30px 24px 34px; }
+  }
 </style>
 </head>
 <body>
@@ -581,6 +605,7 @@
           <a class="btn btn-gold" href="#productos">Ver productos</a>
           <a class="btn btn-light" href="#taller">Ver talleres</a>
         </div>
+        <a class="hero-event" id="hero-event" href="#proximo-taller">Nuevo: taller de cerámica navideña · vie 27 nov →</a>
       </div>
     </div>
   </section>
@@ -729,6 +754,22 @@
   <!-- TALLERES -->
   <section class="section service reveal" id="taller" style="background: var(--bg-alt);">
     <div class="wrap">
+      <div class="event-card" id="proximo-taller" data-until="2026-11-28">
+        <div class="event-media"><img src="img/xmas.webp" alt="Figuras de cerámica navideñas: muñeco de nieve y reno esmaltados" loading="lazy"></div>
+        <div class="event-body">
+          <span class="event-tag">Próximo taller</span>
+          <h3>Crea tu propia pieza de cerámica navideña</h3>
+          <p>El espíritu navideño llega a Soul Cerámicas: ven a crear tu objeto navideño.</p>
+          <ul class="event-meta">
+            <li><span>Fecha</span><strong>Viernes 27 de noviembre</strong></li>
+            <li><span>Horario</span><strong>18:00 a 20:30 hrs</strong></li>
+            <li><span>Valor</span><strong class="price">$35.000</strong></li>
+            <li><span>Incluye</span><strong>Material, quemas y snack</strong></li>
+            <li><span>Lugar</span><strong>Andrés Fernández Coma 3101, Macul</strong></li>
+          </ul>
+          <a class="btn" href="https://wa.me/56971048932?text=Hola%2C%20quiero%20reservar%20un%20cupo%20para%20el%20taller%20de%20cer%C3%A1mica%20navide%C3%B1a%20del%20viernes%2027%20de%20noviembre" target="_blank" rel="noopener">Reservar mi cupo</a>
+        </div>
+      </div>
       <div class="service-grid">
         <div class="service-art">
           <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -970,6 +1011,9 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function (el) { io.observe(el); });
   })();
+</script>
+<script>
+(function(){try{if(new Date()>=new Date('2026-11-28T00:00:00-03:00')){['proximo-taller','hero-event'].forEach(function(i){var e=document.getElementById(i);if(e)e.remove()})}}catch(e){}})();
 </script>
 </body>
 </html>
