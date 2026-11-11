@@ -114,7 +114,7 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     border: 1px solid var(--clay);
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform .25s ease, box-shadow .25s ease;
     white-space: nowrap;
   }
   .btn:hover { background: var(--clay-deep); border-color: var(--clay-deep); }
@@ -468,6 +468,13 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+  ::selection { background: var(--clay); color: var(--cream); }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -12px rgba(35,24,17,.55); }
+  .btn:active { transform: translateY(0); }
+  .gal-item figcaption a { transition: color .25s ease, letter-spacing .25s ease; }
+  .gal-item:hover figcaption a { letter-spacing: .22em; }
+  .section-head h2, .split-copy h2 { text-wrap: balance; }
+  p { text-wrap: pretty; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 
@@ -723,7 +730,7 @@
     </div>
     <div class="split-copy">
       <span class="label">Quiénes somos</span>
-      <h2>Un espacio para crear, aprender y conectar a través de la cerámica.</h2>
+      <h2>Un taller hecho a mano, en el corazón de Macul.</h2>
       <div class="dots"></div>
       <p>Soul Cerámicas es un taller de cerámica artesanal ubicado en Macul, Santiago. Un espacio dedicado a la creación de piezas únicas, la enseñanza del oficio y la exploración de las posibilidades que ofrece la arcilla.</p>
     </div>
@@ -1064,7 +1071,7 @@
         <iframe title="Ubicación de Soul Cerámicas en Macul, Santiago" src="https://maps.google.com/maps?q=Andr%C3%A9s+Fern%C3%A1ndez+Coma+3101%2C+Macul%2C+Santiago%2C+Chile&z=17&hl=es&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
       <div class="map-bar">
-        <span>Andrés Fernández Coma 3101, Macul, Santiago</span>
+        <span>¿Quieres visitarnos? Te esperamos en el taller.</span>
         <a class="btn" href="https://maps.app.goo.gl/wTXi5yvUnteV7JgK9" target="_blank" rel="noopener">Cómo llegar</a>
       </div>
       <div class="reviews-box">
